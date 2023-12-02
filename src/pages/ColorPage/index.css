@@ -1,0 +1,280 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.header{
+    width: 100vw;
+    height: 100px;
+}
+.page{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(black, 20%, #0f2525);
+    padding: 0;
+    margin: 0;
+}
+
+.contentDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pictureDiv{
+    height: 40vw;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+}
+
+.settingsDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.canvas{
+    position: relative;
+    height: 65vh;
+    width: 40vw;
+    border-radius: 30px;
+    border: solid red 1px;
+    background-color: white;
+}
+
+.pickedColor{
+    height: 10vh;
+    width: 20vw;
+    border-radius:15px ;
+}
+.hoveredColor{
+    height: 30px;
+    width: 30px;
+    border: solid greenyellow 1px;
+    position: absolute;
+}
+
+.loadSaveButtons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+
+.loadImageButton{
+    width: 7vh;
+    height: 7vh;
+    margin-inline: 5vh;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(9, 19, 19, 0.82);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loadImageButton img{
+    transition: height, width 0.25s;
+    height: 30%;
+    width: 30%;
+}
+
+.loadImageButton:hover{
+    box-shadow: inset black 0 0 10px 3px;
+}
+
+.loadImageButton:hover img{
+    height: 35%;
+    width: 35%;
+}
+
+
+input[type="file"]
+{
+    display: none;
+}
+
+.colorContainer{
+    margin: 10px;
+    color: white;
+    font-size: 2.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.colorValueContainer{
+    background-color: #1D252A;
+    padding-left: 15px;
+    width: 15vw;
+    height: 4vh;
+    margin-left: 5px;
+    border: none;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 2.5vh;
+    font-family: "Inika";
+    box-shadow: 2px 3px 5px rgba(0,0,0,50%);
+}
+
+.button{
+    background-color: #1D252A;
+    border: none;
+    color: white;
+    width: 10vw;
+    height: 5vh;
+    border-radius: 30px;
+    box-shadow: 2px 3px 5px rgba(0,0,0,50%);
+}
+
+.button:hover{
+    background-color: #294646;
+}
+
+.button:active{
+    background-color: #649180;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 10vw;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch:active{
+    outline: none;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #1D252A;
+    -webkit-transition: .4s;
+    transition: .4s;
+    box-shadow: 2px 3px 5px rgba(0,0,0,50%);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #5D8374;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(calc(10vw - 34px));
+    -ms-transform: translateX(calc(10vw - 34px));
+    transform: translateX(calc(10vw - 34px));
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.modePicker{
+    font-size: 3vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin-block: 3vh;
+}
+
+.modeName{
+    color: white;
+    z-index: 100;
+    position: absolute;
+    transition: opacity .4s;
+    font-size: 2vh;
+    top: 1vh;
+    cursor: pointer;
+}
+
+.modeName:first-child{
+    right: 10px;
+}
+
+.modeName:last-child{
+    left: 10px;
+    opacity: 0;
+}
+
+.valueRange{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin-block: 1vh;
+}
+
+input[type="range"]{
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    color: transparent;
+    box-shadow: 1px 1px 2px rgba(0,0,0,50%);
+
+}
+input[type="range"]::-webkit-slider-runnable-track {
+    background: #1D252A;
+    height: 0.5rem;
+    border: none;
+    border-radius: 5px;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -2px;
+    background-color: #5C8374;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+    border: solid 2px #315251;
+}
+input[type="range"]::-webkit-slider-thumb:active {
+    background-color: #315251;
+}
+
+button{
+    font-size: 3.5vh;
+    font-family: 'Inika', serif;
+}
+
+
