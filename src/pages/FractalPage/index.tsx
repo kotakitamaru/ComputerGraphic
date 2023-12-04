@@ -4,6 +4,9 @@ import {blueYellowPalette, firePalette, pasteleRainbowPalette, rainbowPalette} f
 import {Coordinates, ISet, RGBColor} from "./types.ts";
 import MandelbrotWorker from "./mandelbrotWorker?worker";
 import JuliaWorker from "./juliaWorker?worker";
+import colorsImage from "../../assets/images/colors.png";
+import affineImage from "../../assets/images/affine.png";
+import {NavLink} from "react-router-dom";
 function FractalPage() {
     const [isJulia, setIsJulia] = useState(false);
     const [isViscek, setIsViscek] = useState(false);
@@ -267,7 +270,16 @@ function FractalPage() {
     }, [primalDepth, chosedFractal, colorPalette])
 
     return <div className="page">
-        <header className="header"></header>
+        <header className="header">
+            <NavLink to="/affine" className="navigationButton">
+                <img className="navImageButton" alt="affine image" src={affineImage}/>
+                <div className="navTextDiv"><span style={{marginInline:"15px"}}>Affine</span></div>
+            </NavLink>
+            <NavLink to="/colors" className="navigationButton">
+                <img className="navImageButton" alt="colors image" src={colorsImage}/>
+                <div className="navTextDiv"><span style={{marginInline:"15px"}}>Colors</span></div>
+            </NavLink>
+        </header>
         <div className="contentDiv">
             <div className="fractalDiv">
                 <canvas className="fractalImage" ref={canvasRef} onWheel={onWheelHandler}/>

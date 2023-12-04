@@ -1,0 +1,60 @@
+.header{
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.navigationButton{
+    opacity: 50%;
+    height: 60%;
+    width: 12vw;
+    margin: 25px;
+    border-radius: 20px;
+    position: relative;
+    font-size: x-large;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.navigationButton:hover{
+    opacity: 100%;
+    transition: opacity 300ms, transform 300ms;
+}
+.navigationButton:first-child:hover{
+    transform: translateX(10%) scale(120%);
+}
+.navigationButton:last-child:hover{
+    transform: translateX(-10%) scale(120%)
+}
+
+.navigationButton:first-child{
+    text-align: right;
+    box-shadow: 2px 1px 10px 0px white;
+}
+.navigationButton:last-child{
+    text-align: left;
+    box-shadow: -2px 1px 10px 0px white;
+}
+.navImageButton{
+    border-radius: 20px 20px 0 0;
+    position: absolute;
+    left: 0;
+    top:0;
+    height: 70%;
+    width: 100%;
+}
+
+.navTextDiv{
+    color: white;
+    width: 100%;
+    height: 30%;
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    background-color: transparent;
+    border-radius: 0 0 20px 20px;
+}

@@ -5,6 +5,9 @@ import placeHolder from "./Placeholder.jpg"
 import {useEffect, useRef, useState} from "react";
 import {CMYKColor, HSVColor, Point, RGBColor} from "./types.ts";
 import colorConvert from 'color-convert';
+import {NavLink} from "react-router-dom";
+import affineImage from "../../assets/images/affine.png";
+import fractalImage from "../../assets/images/fractal.png";
 
 
 function ColorPage() {
@@ -38,7 +41,16 @@ function ColorPage() {
     })
 
     return (<div className="page">
-        <header className="header"></header>
+        <header className="header">
+            <NavLink to="/fractals" className="navigationButton">
+                <img className="navImageButton" alt="affine image" src={fractalImage}/>
+                <div className="navTextDiv"><span style={{marginInline:"15px"}}>Fractal</span></div>
+            </NavLink>
+            <NavLink to="/affine" className="navigationButton">
+                <img className="navImageButton" alt="colors image" src={affineImage}/>
+                <div className="navTextDiv"><span style={{marginInline:"15px"}}>Affine</span></div>
+            </NavLink>
+        </header>
         <div className="contentDiv">
             <div className="pictureDiv">
                 <canvas ref={canvasRef} className="canvas"
