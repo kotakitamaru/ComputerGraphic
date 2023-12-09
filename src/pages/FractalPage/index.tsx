@@ -275,6 +275,7 @@ function FractalPage() {
                 <img className="navImageButton" alt="affine image" src={affineImage}/>
                 <div className="navTextDiv"><span style={{marginInline:"15px"}}>Affine</span></div>
             </NavLink>
+            <NavLink className="homeNavLink" to="/">Computer Graphics</NavLink>
             <NavLink to="/colors" className="navigationButton">
                 <img className="navImageButton" alt="colors image" src={colorsImage}/>
                 <div className="navTextDiv"><span style={{marginInline:"15px"}}>Colors</span></div>

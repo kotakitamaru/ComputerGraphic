@@ -1,0 +1,45 @@
+.learningAside{
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    background-color: rgba(0,0,0,50%);
+    width: 17vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.learningNav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.navBtn{
+    color: white;
+    text-decoration: none;
+    opacity: 60%;
+    font-size: x-large;
+    margin-block: 10px;
+    transition: opacity 300ms, transform 300ms;
+}
+
+.navBtn:hover:not(.active){
+    opacity: 90%;
+    transform: scale(110%);
+}
+
+.active{
+    opacity: 100%;
+    transform: scale(150%);
+}
+
+.learningMain{
+    margin-left: 17vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}

@@ -18,11 +18,11 @@
     padding: 0;
     background-color: transparent;
     cursor: pointer;
+    transition: opacity 300ms, transform 300ms;
 }
 
 .navigationButton:hover{
     opacity: 100%;
-    transition: opacity 300ms, transform 300ms;
 }
 .navigationButton:first-child:hover{
     transform: translateX(10%) scale(120%);
@@ -57,4 +57,56 @@
     bottom: 0;
     background-color: transparent;
     border-radius: 0 0 20px 20px;
+}
+
+.homeNavLink{
+    text-decoration: none;
+    color: white;
+    opacity: 25%;
+    font-size: x-large;
+    transition: transform 500ms, opacity 500ms;
+}
+
+.homeNavLink:hover{
+    opacity: 100%;
+    transform: scale(150%);
+}
+
+@keyframes loadAnimation {
+    0%{
+        transform: scale(0%);
+    }
+    100%{
+        transform: scale(100%);
+    }
+}
+
+.learningButton{
+    position: fixed;
+    right: 10px;
+    top:10px;
+    width: 6vh;
+    height: 6vh;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(9, 19, 19, 0.82);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.learningButton img{
+    width: 60%;
+    height: 60%;
+    transition: transform 300ms;
+}
+
+.learningButton:hover{
+    box-shadow: inset black 0 0 10px 3px;
+}
+
+.learningButton:hover img{
+    transform: scale(110%);
 }

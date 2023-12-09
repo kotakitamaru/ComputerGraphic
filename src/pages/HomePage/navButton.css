@@ -1,0 +1,39 @@
+.navButton{
+    display: block;
+    width: 300px;
+    height: 80px;
+    text-decoration: none;
+    margin: 30px;
+    border-radius: 20px;
+    transition: transform 500ms, box-shadow 500ms;
+    box-shadow: 3px 10px 10px 1px rgba(255,255,255,25%);
+}
+
+.navButton:hover{
+    text-decoration: none;
+    transform: scale(120%);
+    box-shadow: 3px 10px 10px 1px rgba(255,255,255,75%);
+}
+
+.navImage{
+    width: 100%;
+    height: 80%;
+    border-radius: 20px 20px 0 0;
+}
+
+.navImage img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 20px 0 0;
+}
+
+.navLabel{
+    color: #C5F5E3;
+    font-size: small;
+    background-color: black;
+    width: 90%;
+    height: 20%;
+    padding-inline: 5%;
+    padding-bottom: 5px;
+    border-radius: 0 0 20px 20px;
+}

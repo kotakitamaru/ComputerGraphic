@@ -1,7 +1,7 @@
 import "./index.css"
 import uploadIcon from "./upload.png"
 import downloadIcon from "./download.png"
-import placeHolder from "./Placeholder.jpg"
+import placeHolder from "./Placeholder.png"
 import {useEffect, useRef, useState} from "react";
 import {CMYKColor, HSVColor, Point, RGBColor} from "./types.ts";
 import colorConvert from 'color-convert';
@@ -46,6 +46,7 @@ function ColorPage() {
                 <img className="navImageButton" alt="affine image" src={fractalImage}/>
                 <div className="navTextDiv"><span style={{marginInline:"15px"}}>Fractal</span></div>
             </NavLink>
+            <NavLink to="/" className="homeNavLink">Computer Graphics</NavLink>
             <NavLink to="/affine" className="navigationButton">
                 <img className="navImageButton" alt="colors image" src={affineImage}/>
                 <div className="navTextDiv"><span style={{marginInline:"15px"}}>Affine</span></div>

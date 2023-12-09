@@ -48,6 +48,7 @@ function AffinePage(){
                 <img className="navImageButton" alt="affine image" src={colorsImage}/>
                 <div className="navTextDiv"><span style={{marginInline:"15px"}}>Colors</span></div>
             </NavLink>
+            <NavLink to="/" className="homeNavLink">Computer Graphics</NavLink>
             <NavLink to="/fractals" className="navigationButton">
                 <img className="navImageButton" alt="colors image" src={fractalImage}/>
                 <div className="navTextDiv"><span style={{marginInline:"15px"}}>Fractal</span></div>
@@ -127,9 +128,7 @@ function AffinePage(){
                 squareRef.current.scale(scalePoint.x, scalePoint.y);
             }
             const rotationAngle = Number(rotationAngleRef.current!.value)/FRAMES_PER_SECONDS;
-            if (rotationAngle > 0) {
                 squareRef.current.rotate(rotationAngle)
-            }
             drawSquare(squareRef.current);
             await sleep(1000/FRAMES_PER_SECONDS);
         }
