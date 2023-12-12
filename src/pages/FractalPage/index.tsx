@@ -7,6 +7,7 @@ import JuliaWorker from "./juliaWorker?worker";
 import colorsImage from "../../assets/images/colors.png";
 import affineImage from "../../assets/images/affine.png";
 import {NavLink} from "react-router-dom";
+import learningIcon from "../../assets/images/learning.png";
 function FractalPage() {
     const [isJulia, setIsJulia] = useState(false);
     const [isViscek, setIsViscek] = useState(false);
@@ -23,8 +24,8 @@ function FractalPage() {
     const WIDTH: number = 600;
 
 
-    const REAL_SET = useRef<ISet>({start:-2,end:2})
-    const IMAGINARY_SET = useRef<ISet>({start:-2,end:2})
+    const REAL_SET = useRef<ISet>({start: -2, end: 2})
+    const IMAGINARY_SET = useRef<ISet>({start: -2, end: 2})
     const ZOOM_IN_FACTOR: number = 0.3;
     const ZOOM_OUT_FACTOR: number = 1.3;
     const workers: Worker[] = [];
@@ -192,12 +193,12 @@ function FractalPage() {
         })
     }, [])
 
-    useEffect(()=>{
-        REAL_SET.current = {start:-2,end:2};
-        IMAGINARY_SET.current = {start:-2,end:2};
-    },[chosedFractal])
+    useEffect(() => {
+        REAL_SET.current = {start: -2, end: 2};
+        IMAGINARY_SET.current = {start: -2, end: 2};
+    }, [chosedFractal])
 
-    function ZoomIn(clientCoord:Coordinates) {
+    function ZoomIn(clientCoord: Coordinates) {
 
         const canvas: HTMLCanvasElement | null = canvasRef.current;
         const zfw = (WIDTH * ZOOM_IN_FACTOR)
@@ -215,7 +216,7 @@ function FractalPage() {
         drawFractal();
     }
 
-    function ZoomOut(clientCoord:Coordinates) {
+    function ZoomOut(clientCoord: Coordinates) {
 
         const canvas: HTMLCanvasElement | null = canvasRef.current;
         const zfw = (WIDTH / ZOOM_OUT_FACTOR)
@@ -239,7 +240,7 @@ function FractalPage() {
         drawFractal();
     }
 
-    function onWheelHandler(e:React.WheelEvent) {
+    function onWheelHandler(e: React.WheelEvent) {
         if (e.deltaY < 0)
             ZoomIn({x: e.clientX, y: e.clientY});
         else {
@@ -273,26 +274,39 @@ function FractalPage() {
         <header className="header">
             <NavLink to="/affine" className="navigationButton">
                 <img className="navImageButton" alt="affine image" src={affineImage}/>
-                <div className="navTextDiv"><span style={{marginInline:"15px"}}>Affine</span></div>
+                <div className="navTextDiv"><span style={{marginInline: "15px"}}>Affine</span></div>
             </NavLink>
             <NavLink className="homeNavLink" to="/">Computer Graphics</NavLink>
             <NavLink to="/colors" className="navigationButton">
                 <img className="navImageButton" alt="colors image" src={colorsImage}/>
-                <div className="navTextDiv"><span style={{marginInline:"15px"}}>Colors</span></div>
+                <div className="navTextDiv"><span style={{marginInline: "15px"}}>Colors</span></div>
             </NavLink>
         </header>
+        <NavLink to="/learning-material/fractals">
+            <button className="learningButton"  style={{top:"100px",right:"30px",backgroundColor:"rgba(0,0,0,75%)"}}>
+                <img src={learningIcon} alt="Download icon"/>
+            </button>
+        </NavLink>
         <div className="contentDiv">
             <div className="fractalDiv">
                 <canvas className="fractalImage" ref={canvasRef} onWheel={onWheelHandler}/>
             </div>
-            <ul  className="colorPaletteInput">
-                <li hidden={!isAlgebraic} className={"colorPaletteOption BlueYellow" + (chosedPalette === "BlueYellow"?" colorPaletteOptionChosen":"")} onClick={() => setChosedPalette("BlueYellow")}
+            <ul className="colorPaletteInput">
+                <li hidden={!isAlgebraic}
+                    className={"colorPaletteOption BlueYellow" + (chosedPalette === "BlueYellow" ? " colorPaletteOptionChosen" : "")}
+                    onClick={() => setChosedPalette("BlueYellow")}
                     value="BlueYellow"></li>
-                <li hidden={!isAlgebraic} className={"colorPaletteOption Rainbow" + (chosedPalette === "Rainbow"?" colorPaletteOptionChosen":"")} onClick={() => setChosedPalette("Rainbow")}
+                <li hidden={!isAlgebraic}
+                    className={"colorPaletteOption Rainbow" + (chosedPalette === "Rainbow" ? " colorPaletteOptionChosen" : "")}
+                    onClick={() => setChosedPalette("Rainbow")}
                     value="Rainbow"></li>
-                <li hidden={!isAlgebraic} className={"colorPaletteOption PastelRainbow" + (chosedPalette === "PastelRainbow"?" colorPaletteOptionChosen":"")} onClick={() => setChosedPalette("PastelRainbow")}
+                <li hidden={!isAlgebraic}
+                    className={"colorPaletteOption PastelRainbow" + (chosedPalette === "PastelRainbow" ? " colorPaletteOptionChosen" : "")}
+                    onClick={() => setChosedPalette("PastelRainbow")}
                     value="PasteleRainbow"></li>
-                <li hidden={!isAlgebraic} className={"colorPaletteOption Fire" + (chosedPalette === "Fire"?" colorPaletteOptionChosen":"")} onClick={() => setChosedPalette("Fire")} value="Fire"></li>
+                <li hidden={!isAlgebraic}
+                    className={"colorPaletteOption Fire" + (chosedPalette === "Fire" ? " colorPaletteOptionChosen" : "")}
+                    onClick={() => setChosedPalette("Fire")} value="Fire"></li>
             </ul>
             <div className="settingsDiv">
                 <div className="selectFractalContainer">
@@ -314,62 +328,90 @@ function FractalPage() {
                 <div className="optionsDiv">
                     {isJulia && <div className="constantValueDiv">
                         <label>Real part<br/>
-                            <div className="inputNumber" >
+                            <div className="inputNumber">
                                 <input className="input" type="number" value={cx} step="0.01"
                                        onChange={(e) => (Number(e.target.value) >= -2 && Number(e.target.value) <= 2) && setCx(Number(e.target.value))}></input>
                                 <div className="inputNumberArrowsContainer">
-                                    <button className="inputNumberArrowButton" onClick={()=>cx<2&&setCx((x)=>Number((x+0.01).toFixed(6)))}>▲</button>
-                                    <button className="inputNumberArrowButton" onClick={()=>cx>-2&&setCx((x)=>Number((x-0.01).toFixed(6)))}>▼</button>
-                                </div></div>
+                                    <button className="inputNumberArrowButton"
+                                            onClick={() => cx < 2 && setCx((x) => Number((x + 0.01).toFixed(6)))}>▲
+                                    </button>
+                                    <button className="inputNumberArrowButton"
+                                            onClick={() => cx > -2 && setCx((x) => Number((x - 0.01).toFixed(6)))}>▼
+                                    </button>
+                                </div>
+                            </div>
                         </label>
                         <label>Imaginary part<br/>
-                            <div className="inputNumber" >
-                            <input className="input" type="number" value={cy} step="0.01"
-                                   onChange={(e) => (Number(e.target.value) >= -2 && Number(e.target.value) <= 2) && setCy(Number(e.target.value))}></input>
-                            <div className="inputNumberArrowsContainer">
-                                <button className="inputNumberArrowButton" onClick={()=>cy<2&&setCy((x)=>Number((x+0.01).toFixed(6)))}>▲</button>
-                                <button className="inputNumberArrowButton" onClick={()=>cy>-2&&setCy((x)=>Number((x-0.01).toFixed(6)))}>▼</button>
-                            </div></div>
-                        </label>
-
-                    </div>}
-                    <label hidden={!isAlgebraic}>Number of workers<br/>
-                        <div className="inputNumber" >
-                            <input type="number" readOnly={true} className="input" ref={inputWorkersRef} defaultValue={window.navigator.hardwareConcurrency}/>
-                            <div className="inputNumberArrowsContainer">
-                                <button className="inputNumberArrowButton" onClick={()=> {
-                                    if(Number(inputWorkersRef.current!.value) < window.navigator.hardwareConcurrency)
-                                        inputWorkersRef.current!.value = (Number(inputWorkersRef.current!.value)+1).toString();
-                                }}>▲</button>
-                                <button className="inputNumberArrowButton" onClick={()=> {
-                                    if(Number(inputWorkersRef.current!.value) > 1)
-                                        inputWorkersRef.current!.value = (Number(inputWorkersRef.current!.value)-1).toString();
-                                }}>▼</button>
+                            <div className="inputNumber">
+                                <input className="input" type="number" value={cy} step="0.01"
+                                       onChange={(e) => (Number(e.target.value) >= -2 && Number(e.target.value) <= 2) && setCy(Number(e.target.value))}></input>
+                                <div className="inputNumberArrowsContainer">
+                                    <button className="inputNumberArrowButton"
+                                            onClick={() => cy < 2 && setCy((x) => Number((x + 0.01).toFixed(6)))}>▲
+                                    </button>
+                                    <button className="inputNumberArrowButton"
+                                            onClick={() => cy > -2 && setCy((x) => Number((x - 0.01).toFixed(6)))}>▼
+                                    </button>
+                                </div>
                             </div>
-                        </div></label>
-                    <label hidden={!isAlgebraic}>Max iterations<br/>
-                        <div className="inputNumber" >
-                        <input type="number" className="input" ref={inputIterationsRef} defaultValue={100} onChange={() => drawFractal()}/>
-                        <div className="inputNumberArrowsContainer">
-                            <button className="inputNumberArrowButton" onClick={()=> {
-                                inputIterationsRef.current!.value = (Number(inputIterationsRef.current!.value)+1).toString();
-                                drawFractal();
-                            }}>▲</button>
-                            <button className="inputNumberArrowButton" onClick={()=> {
-                                inputIterationsRef.current!.value = (Number(inputIterationsRef.current!.value)-1).toString();
-                                drawFractal();
-                            }}>▼</button>
+                        </label>
+                        <button className="infoButton">i</button>
+                        <div className="juliaInfoDiv">These numbers affect how the fractal will look. Here are some examples of interesting cases of the Julia fractal: (−0.4; 0.6), (0.285; 0.01), (−0.835; 0.2321), (−0.8; 0.156), (0; 0.8), (0.35; 0.35), (0.4; 0.4)</div>
+                    </div>}
+                    <div  style={{display:"flex"}}>
+                    <label hidden={!isAlgebraic}>Number of workers<br/>
+                        <div className="inputNumber">
+                            <input type="number" readOnly={true} className="input" ref={inputWorkersRef}
+                                   defaultValue={window.navigator.hardwareConcurrency}/>
+                            <div className="inputNumberArrowsContainer">
+                                <button className="inputNumberArrowButton" onClick={() => {
+                                    if (Number(inputWorkersRef.current!.value) < window.navigator.hardwareConcurrency)
+                                        inputWorkersRef.current!.value = (Number(inputWorkersRef.current!.value) + 1).toString();
+                                }}>▲
+                                </button>
+                                <button className="inputNumberArrowButton" onClick={() => {
+                                    if (Number(inputWorkersRef.current!.value) > 1)
+                                        inputWorkersRef.current!.value = (Number(inputWorkersRef.current!.value) - 1).toString();
+                                }}>▼
+                                </button>
+                            </div>
                         </div>
-                        </div></label>
+                    </label>
+                    <button hidden={!isAlgebraic} className="infoButton" style={{marginTop:"45px"}}>i</button>
+                    <div className="juliaInfoDiv" style={{transform:"translateY(-65%) translateX(-15%)"}}>Number of CPs participating in fractal calculation and drawing. The more workers - the faster is drawing. Maximum amount equals to cores of your PC</div>
+                    </div>
+                    <label hidden={!isAlgebraic}>Max iterations<br/>
+                        <div className="inputNumber">
+                            <input type="number" className="input" ref={inputIterationsRef} defaultValue={100}
+                                   onChange={() => drawFractal()}/>
+                            <div className="inputNumberArrowsContainer">
+                                <button className="inputNumberArrowButton" onClick={() => {
+                                    inputIterationsRef.current!.value = (Number(inputIterationsRef.current!.value) + 1).toString();
+                                    drawFractal();
+                                }}>▲
+                                </button>
+                                <button className="inputNumberArrowButton" onClick={() => {
+                                    inputIterationsRef.current!.value = (Number(inputIterationsRef.current!.value) - 1).toString();
+                                    drawFractal();
+                                }}>▼
+                                </button>
+                            </div>
+                        </div>
+                    </label>
                     {isViscek &&
                         <label>Depth<br/>
                             <div className="inputNumber">
-                            <input className="input" readOnly={true} style={{width:"5vw"}} type="number" value={primalDepth} onChange={onChangeDepthHandler}/>
-                            <div className="inputNumberArrowsContainer">
-                                <button className="inputNumberArrowButton" onClick={()=>primalDepth<8&&setPrimalDepth((x)=>++x)}>▲</button>
-                                <button className="inputNumberArrowButton" onClick={()=>primalDepth>0&&setPrimalDepth((x)=>--x)}>▼</button>
+                                <input className="input" readOnly={true} style={{width: "5vw"}} type="number"
+                                       value={primalDepth} onChange={onChangeDepthHandler}/>
+                                <div className="inputNumberArrowsContainer">
+                                    <button className="inputNumberArrowButton"
+                                            onClick={() => primalDepth < 8 && setPrimalDepth((x) => ++x)}>▲
+                                    </button>
+                                    <button className="inputNumberArrowButton"
+                                            onClick={() => primalDepth > 0 && setPrimalDepth((x) => --x)}>▼
+                                    </button>
+                                </div>
                             </div>
-                        </div>
                         </label>}
                 </div>
             </div>

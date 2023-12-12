@@ -89,6 +89,8 @@ label:has(.input){
 
 .constantValueDiv{
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .constantValueDiv .input{
@@ -238,4 +240,37 @@ label:has(.input){
 .inputNumberArrowButton:last-child{
     border-radius: 0 0  30px 0 ;
     padding-bottom: 1px;
+}
+
+.infoButton{
+    border-radius: 50%;
+    width: 5vh;
+    height: 5vh;
+    color: white;
+    background-color: rgba(9, 19, 19, 0.82);
+    border: none;
+    margin-top: 35px;
+}
+
+.infoButton:hover{
+    box-shadow: inset black 0 0 10px 3px;
+}
+
+.infoButton:hover + .juliaInfoDiv{
+    display: block;
+}
+
+.juliaInfoDiv:hover{
+    display: block;
+}
+
+.juliaInfoDiv{
+    display: none;
+    position: fixed;
+    background-color: #0F1416;
+    width: 20vw;
+    right: 50px;
+    margin-bottom: 130px;
+    padding: 10px;
+    border-radius: 20px;
 }

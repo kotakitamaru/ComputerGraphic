@@ -4,6 +4,7 @@ import "./index.css";
 import {NavLink} from "react-router-dom";
 import colorsImage from "../../assets/images/colors.png";
 import fractalImage from "../../assets/images/fractal.png";
+import learningIcon from "../../assets/images/learning.png";
 
 
 function AffinePage(){
@@ -54,6 +55,11 @@ function AffinePage(){
                 <div className="navTextDiv"><span style={{marginInline:"15px"}}>Fractal</span></div>
             </NavLink>
         </header>
+        <NavLink to="/learning-material/affine">
+            <button className="learningButton"  style={{top:"100px",right:"30px",backgroundColor:"rgba(0,0,0,75%)"}}>
+                <img src={learningIcon} alt="Download icon"/>
+            </button>
+        </NavLink>
         <div className="contentDiv">
             <canvas className="squareCanvas" ref={canvasRef}></canvas>
             <div className="settingsDiv">

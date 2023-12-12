@@ -3,10 +3,8 @@
     ,linear-gradient(180deg, rgba(4, 13, 18, 0.6) 54.4%, #040D12 100%)
     ,url("../../assets/images/homeBackground.png") no-repeat center center fixed;
     background-size: cover;
-    width: 100vw;
-    height: 100vh;
-
-
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 .navWindow{

@@ -1,6 +1,6 @@
 import {NavLink, useParams} from "react-router-dom";
 import ColorsMaterial from "./ColorsMaterial.tsx";
-import FracrtalMaterial from "./FractalsMaterial.tsx";
+import FractalMaterial from "./FractalsMaterial.tsx";
 import AffineMaterial from "./AffineMaterial.tsx";
 import "./index.css";
 import NoMaterial from "./NoMaterial.tsx";
@@ -24,7 +24,7 @@ function LearningPage(){
                     about == "affine"?
                     <AffineMaterial/>:
                     about == "fractals"?
-                    <FracrtalMaterial/>:
+                    <FractalMaterial/>:
                     <NoMaterial/>
             }
         </main>

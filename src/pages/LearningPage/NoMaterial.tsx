@@ -1,6 +1,6 @@
 function NoMaterial(){
     return <>
-        No Material
+        <h1 style={{color:"white"}}>Choose an article</h1>
     </>
 }
 

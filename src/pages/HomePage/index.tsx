@@ -7,7 +7,7 @@ import learningIcon from "../../assets/images/learning.png"
 import {NavLink} from "react-router-dom";
 function HomePage(){
     return <div className="pageDiv">
-        <NavLink to="/learning-material">
+        <NavLink to="/learning-material/fractals">
         <button className="learningButton">
             <img src={learningIcon} alt="Download icon"/>
         </button>

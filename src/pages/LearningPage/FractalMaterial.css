@@ -1,0 +1,62 @@
+.fractalArticle{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.infoSection{
+    display:flex;
+}
+
+.linksSection{
+    background-color: rgba(0,0,0,60%);
+    color: white;
+    padding: 20px 70px 30px 20px;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.textSection{
+    width: 60vh;
+    background-color: rgba(0,0,0,60%);
+    margin-inline: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.textSection p{
+    text-align: justify;
+}
+
+.videoDiv{
+    background-color: rgba(0,0,0,60%);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 10px;
+    align-items: center;
+}
+
+.videoDiv:has(img){
+    margin-top: 10px;
+    height: 60vh;
+    position: relative;
+}
+
+
+.videoDiv img{
+    margin-top: 20px;
+    width: 80%;
+}
+
+.algebraicVideo{
+    height: 35vh;
+    padding: 10px;
+}
+
+p a{
+    color: #C5F5E3;
+}
